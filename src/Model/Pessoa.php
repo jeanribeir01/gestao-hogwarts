@@ -3,5 +3,5 @@
 class Pessoa
 {
     private $nome;
-    private $cpf;
+    private $numero;
 }
