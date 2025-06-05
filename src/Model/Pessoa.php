@@ -6,10 +6,6 @@ namespace App\Model;
 
 class Pessoa
 {
-<<<<<<< Updated upstream
-    private $nome;
-    private $numero;
-=======
     protected $nome;
 
     public function __construct($nome)
@@ -20,5 +16,4 @@ class Pessoa
     public function getNome(): string {
         return $this->nome;
     }
->>>>>>> Stashed changes
 }

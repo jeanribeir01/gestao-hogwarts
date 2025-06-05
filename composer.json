@@ -1,18 +1,22 @@
 {
-    "name": "angelo/php-poo-skeleton",
-    "type": "library",
-    "description": "PHP POO Skeleton is a base project used in Object-Oriented Programming (OOP) classes for undergraduate program in Systems Analysis and Development, Computer Science and Software Engineering.",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Angelo Mesquita",
-            "email": "angeloamesquita@gmail.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "App\\": "src/"
-        }
+  "name": "jeanribeir01/gestao-hogwarts",
+  "type": "library",
+  "description": "Este projeto visa modernizar a administração da Escola de Magia e Bruxaria de Hogwarts através de um Sistema Integrado de Gestão Escolar. Ele auxiliará na organização de processos fundamentais, desde o convite de novos alunos até o controle acadêmico, substituindo processos manuais e melhorando a eficiência.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jean Ribeiro Penha",
+      "email": "jeanribeiro1905@gmail.com"
     },
-    "require": {}
+    {
+      "name": "",
+      "email": ""
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "require": {}
 }
