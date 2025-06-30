@@ -25,6 +25,7 @@ class Convite {
     public function __construct($aluno) {
         if ($aluno->getIdade() < 11) {
             echo "Essa pessoa não possui a idade mínima para receber o convite\n";
+            return;
         }
         $this->aluno = $aluno;
         $this->dataEnvio = date("Y-m-d H:i:s");
