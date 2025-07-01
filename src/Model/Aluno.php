@@ -1,46 +1,17 @@
 <?php
 
-namespace App\Model {
+namespace App\Model;
 
+use App\Model\Pessoa;
 
-    class Aluno{
-        private $id;
-        private $nome;
-        private $email;
-        private $idade;
-        private $recebeuConvite;
+class Aluno extends Pessoa
+{
+    protected $casa;
+    protected $recebeuConvite = false;
+    protected $id;
+    protected $email;
 
-        public function __construct($nome, $email, $idade)
-        {
-            $this->nome = $nome;
-            $this->email = $email;
-            $this->idade = $idade;
-            $this->recebeuConvite = false;
-        }
+    public function __construct($nome, $idade){ parent::__construct($nome, $idade); }
 
-        public function getNome()
-        {
-            return $this->nome;
-        }
-
-        public function getEmail()
-        {
-            return $this->email;
-        }
-
-        public function getIdade()
-        {
-            return $this->idade;
-        }
-
-        public function setRecebeuConvite($status)
-        {
-            $this->recebeuConvite = $status;
-        }
-
-        public function getRecebeuConvite()
-        {
-            return $this->recebeuConvite;
-        }
-    }
+    public function confirmarConvite(){ $this->recebeuConvite = true; }
 }
