@@ -1,5 +1,5 @@
 <?php
-
+// Novas modificações 
 // Classe convite responsavel somente por mandar os convites 
 // E confirmar o recebimento 
 
@@ -8,10 +8,8 @@ class Convite {
     protected $dataEnvio;
     protected $dataConfirmacao = null;
 
-    // Atributo estatico que vai armazenar todos os convites  
     protected static $convites = [];
 
-    // Atributos com metodo Get para a classe adminstrador poder ver eles 
 
     public function getAluno() {return $this->aluno;}
 
@@ -21,7 +19,6 @@ class Convite {
 
     public static function getTodosConvites() {return self::$convites;}
 
-    // Metodo construtor que ja faz a validação da idade do Aluno 
     public function __construct($aluno) {
         if ($aluno->getIdade() < 11) {
             echo "Essa pessoa não possui a idade mínima para receber o convite\n";
@@ -33,7 +30,6 @@ class Convite {
 
     }
     
-    // Metodo de gerar conteudo personalizado para cada aluno  
     public function gerarConteudo() {
         echo "Prezado(a) {$this->aluno->getNome()}, você completou a idade mínima " . 
         "e está oficialmente convidado(a) a ingressar em Hogwarts! " .

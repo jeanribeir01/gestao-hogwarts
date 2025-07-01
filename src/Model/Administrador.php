@@ -1,5 +1,5 @@
 <?php
-
+// Novas modificações 
 class Administrador {
     public function listarConvites(array $convites) {
         if (empty($convites)) {
