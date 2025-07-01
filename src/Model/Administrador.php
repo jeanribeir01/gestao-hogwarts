@@ -13,6 +13,7 @@ class Administrador
                 $aluno = $convite->getAluno();
                 echo "Aluno: " . $aluno->getNome() . "\n";
                 echo "Data de envio: " . $convite->getDataEnvio() . "\n";
+                echo "E-mail cadastrado: " . $aluno->getEmail() . "\n";
 
                 if ($convite->getDataConfirmacao() != null) {
                     echo "Data de confirmação: " . $convite->getDataConfirmacao() . "\n";
