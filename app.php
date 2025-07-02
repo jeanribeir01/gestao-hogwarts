@@ -22,8 +22,8 @@ use App\Model\Aluno;
 use App\Model\Administrador;
 use App\Model\Convite;
 
-$novoAluno1 = new Aluno("Luxemburgo Rosa", 47, "rosalinda@gmail.com");
-$novoAluno2 = new Aluno("Lênin Vladimir", 53, "Leninho123@gmail.com");
+$novoAluno1 = new Aluno("#190XD0C", "Luxemburgo Rosa", 47, "rosalinda@gmail.com");
+$novoAluno2 = new Aluno("#UISU2", "Lênin Vladimir", 53, "Leninho123@gmail.com");
 
 $novoConvite1 = new Convite($novoAluno1);
 $novoConvite2 = new Convite($novoAluno2);

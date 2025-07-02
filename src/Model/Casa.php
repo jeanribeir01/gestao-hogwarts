@@ -1,8 +1,8 @@
 <?php
 
-namespace Models;
+namespace App\Model;
 
-use Models\Aluno;
+use App\Model\Aluno;
 
 class Casa
 {
@@ -15,7 +15,6 @@ class Casa
         $this->nome = $nome;
     }
 
-    // Getter e Setter para nome
     public function getNome(): string
     {
         return $this->nome;
@@ -26,7 +25,6 @@ class Casa
         $this->nome = $nome;
     }
 
-    // Getter e Setter para alunos
     public function getAlunos(): array
     {
         return $this->alunos;
@@ -37,13 +35,11 @@ class Casa
         $this->alunos = $alunos;
     }
 
-    // Adicionar um aluno
     public function adicionarAluno(Aluno $aluno): void
     {
         $this->alunos[] = $aluno;
     }
 
-    // Getter e Setter para pontos
     public function getPontos(): int
     {
         return $this->pontos;
@@ -54,7 +50,6 @@ class Casa
         $this->pontos = $pontos;
     }
 
-    // Adicionar pontos
     public function adicionarPontos(int $quantidade): void
     {
         $this->pontos += $quantidade;

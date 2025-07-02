@@ -4,40 +4,46 @@ namespace App\Model;
 
 use App\Base\AbstractPerson;
 use App\Interfaces\NotifiableInterface;
+use App\Interfaces\PersonInterface;
 
-class Aluno extends AbstractPerson implements NotifiableInterface
+class Aluno extends AbstractPerson implements NotifiableInterface, PersonInterface
 {
+    private string $id;
     private string $casa;
     private string $statusConvite;
     private array $caracteristicas;
 
-    public function __construct(string $nome, int $idade, string $email)
+    public function __construct(string $id, string $nome, int $idade, string $email)
     {
         parent::__construct($nome, $idade, $email);
-        $this->statusConvite = "enviado"; // padrão ao criar
+        $this->statusConvite = "enviado";
         $this->caracteristicas = [];
     }
 
-    // Getters
-    public function getCasa() {return $this->casa;}
-    public function getStatusConvite(){return $this->statusConvite;}
+    public function getCasa(): string
+    {return $this->casa;}
+    public function getStatusConvite(): string
+    {return $this->statusConvite;}
     public function getCaracteristicas(): array{return $this->caracteristicas;}
 
-    // Setters
-    public function setCasa(string $casa){$this->casa = $casa;}
-    public function setStatusConvite($status){$this->statusConvite = $status;}
-    public function setCaracteristicas(array $caracteristicas){$this->caracteristicas = $caracteristicas;}
-    
-    // Funções
-    public function adicionarCaracteristica($caracteristica)
+    public function setCasa(string $casa): void
+    {$this->casa = $casa;}
+    public function setStatusConvite($status): void
+    {$this->statusConvite = $status;}
+    public function setCaracteristicas(array $caracteristicas): void
+    {$this->caracteristicas = $caracteristicas;}
+
+    public function adicionarCaracteristica($caracteristica): void
     {$this->caracteristicas[] = $caracteristica;}
 
-    public function confirmarRecebimento()
+    public function confirmarRecebimento(): void
     {$this->statusConvite = "confirmado";}
 
-    public function receberNotificacao($mensagem)
+    public function receberNotificacao($mensagem): void
     {echo "Notificação para {$this->getNome()}: $mensagem\n";}
 
-
-
+    public function getId() : string
+    {
+        return $this->id;
+    }
 }

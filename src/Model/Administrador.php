@@ -4,7 +4,7 @@ namespace App\Model;
 
 class Administrador
 {
-    public function listarConvites(array $convites)
+    public function listarConvites(array $convites): void
     {
         if (empty($convites)) {
             echo "Nenhum convite no momento\n";

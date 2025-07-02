@@ -1,8 +1,5 @@
 <?php
 namespace App\Model;
-{
-    use Models\Professor;
-    use Models\Aluno;
 
     class Disciplina
     {
@@ -11,11 +8,10 @@ namespace App\Model;
         private array $turma = [];
 
 
-        public function __construct(string $nome, Professor $professor, array $turma = [])
+        public function __construct(string $nome, Professor $professor)
         {
             $this->nome = $nome;
             $this->professor = $professor;
-            $this->setTurma($turma);
         }
 
 
@@ -67,6 +63,5 @@ namespace App\Model;
                 return $a !== $aluno;
             });
         }
-    }
 
 }
