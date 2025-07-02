@@ -2,16 +2,13 @@
 
 namespace App\Model;
 
-use App\Model\Aluno;
-
 class Convite
 {
-    protected $aluno;
-    protected $dataEnvio;
-    protected $dataConfirmacao = null;
+    protected Aluno $aluno;
+    protected string $dataEnvio;
+    protected string $dataConfirmacao;
     protected static $convites = [];
 
-    // Função construtora 
     public function __construct($aluno)
     {
         if ($aluno->getIdade() < 11) {
@@ -24,14 +21,16 @@ class Convite
         self::$convites[] = $this;
     }
 
-    // Getters 
-    public function getAluno() { return $this->aluno; }
-    public function getDataEnvio() { return $this->dataEnvio; }
-    public function getDataConfirmacao() { return $this->dataConfirmacao; }
-    public static function getTodosConvites() { return self::$convites; }
+    public function getAluno(): Aluno
+    { return $this->aluno; }
+    public function getDataEnvio(): string
+    { return $this->dataEnvio; }
+    public function getDataConfirmacao(): string
+    { return $this->dataConfirmacao; }
+    public static function getTodosConvites(): array
+    { return self::$convites; }
 
-    // Funções 
-    public function gerarConteudo() 
+    public function gerarConteudo(): void
     {
 
     $nome = $this->aluno->getNome();
@@ -56,7 +55,7 @@ class Convite
     echo "----------------------------------------\n\n";
     }
 
-    public function confirmarRecebimento()
+    public function confirmarRecebimento(): void
     {
     $this->dataConfirmacao = date("Y-m-d H:i:s");
     $this->aluno->confirmarRecebimento(); 

@@ -17,7 +17,7 @@ class ConviteManager
         return null;
     }
 
-    public function acompanharRespostas(array $alunos)
+    public function acompanharRespostas(array $alunos): void
     {
         $convites = Convite::getTodosConvites();
         echo "Acompanhamento de Respostas:\n";

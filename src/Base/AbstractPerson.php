@@ -4,9 +4,9 @@ namespace App\Base;
 
 abstract class AbstractPerson
 {
-    protected $nome;
-    protected $idade;
-    protected $email;
+    protected string $nome;
+    protected int $idade;
+    protected string $email;
 
     public function __construct($nome, $idade, $email)
     {
@@ -15,12 +15,13 @@ abstract class AbstractPerson
         $this->email = $email;
     }
 
-    // Getters 
-    public function getNome(){return $this->nome;}
-    public function getIdade(){return $this->idade;}
-    public function getEmail(){return $this->email;}
+    public function getNome(): string
+    {return $this->nome;}
+    public function getIdade(): int
+    {return $this->idade;}
+    public function getEmail(): string
+    {return $this->email;}
 
-    // Setters 
     public function setNome($nome){$this->nome = $nome;}
     public function setIdade($idade){$this->idade = $idade;}
     public function setEmail($email){$this->email = $email;}
