@@ -2,45 +2,31 @@
 
 namespace App\Model;
 
-use Models\Desafio;
-use Models\Aluno;
+use DateTime;
 
 class Torneio
 {
     private string $nome;
     private string $regras;
     private DateTime $dataInicio;
-    private DateTime $dataFim;
     private array $desafios = [];
     private array $participantes = [];
 
-    public function __construct(string $nome, string $regras, DateTime $dataInicio, DateTime $dataFim)
+    public function __construct(string $nome, string $regras, DateTime $dataInicio)
     {
         $this->nome = $nome;
         $this->regras = $regras;
         $this->dataInicio = $dataInicio;
-        $this->dataFim = $dataFim;
     }
-
 
     public function getNome(): string
     {
         return $this->nome;
     }
 
-    public function getRegras(): string
+    public function adicionarDesafio(Desafio $desafio): void
     {
-        return $this->regras;
-    }
-
-    public function getDataInicio(): DateTime
-    {
-        return $this->dataInicio;
-    }
-
-    public function getDataFim(): DateTime
-    {
-        return $this->dataFim;
+        $this->desafios[] = $desafio;
     }
 
     public function getDesafios(): array
@@ -48,43 +34,13 @@ class Torneio
         return $this->desafios;
     }
 
+    public function inscreverParticipante(Aluno $aluno): void
+    {
+        $this->participantes[$aluno->getId()] = $aluno;
+    }
+
     public function getParticipantes(): array
     {
         return $this->participantes;
-    }
-
-
-    public function setNome(string $nome): void
-    {
-        $this->nome = $nome;
-    }
-
-    public function setRegras(string $regras): void
-    {
-        $this->regras = $regras;
-    }
-
-    public function setDataInicio(DateTime $dataInicio): void
-    {
-        $this->dataInicio = $dataInicio;
-    }
-
-    public function setDataFim(DateTime $dataFim): void
-    {
-        $this->dataFim = $dataFim;
-    }
-
-
-    public function adicionarDesafio(Desafio $desafio): void
-    {
-        $this->desafios[] = $desafio;
-    }
-
-    public function inscreverAluno(Aluno $aluno): void
-    {
-        
-        if (!in_array($aluno, $this->participantes, true)) {
-            $this->participantes[] = $aluno;
-        }
     }
 }
