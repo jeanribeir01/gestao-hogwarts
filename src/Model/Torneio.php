@@ -11,8 +11,8 @@ class Torneio
     private string $regras;
     private DateTime $dataInicio;
     private DateTime $dataFim;
-    private array $desafios = []; // Array de objetos Desafio
-    private array $participantes = []; // Array de objetos Aluno
+    private array $desafios = [];
+    private array $participantes = [];
 
     public function __construct(string $nome, string $regras, DateTime $dataInicio, DateTime $dataFim)
     {
@@ -22,7 +22,7 @@ class Torneio
         $this->dataFim = $dataFim;
     }
 
-    // Getters
+
     public function getNome(): string
     {
         return $this->nome;
@@ -53,7 +53,7 @@ class Torneio
         return $this->participantes;
     }
 
-    // Setters
+
     public function setNome(string $nome): void
     {
         $this->nome = $nome;
@@ -74,7 +74,7 @@ class Torneio
         $this->dataFim = $dataFim;
     }
 
-    // Métodos adicionais
+
     public function adicionarDesafio(Desafio $desafio): void
     {
         $this->desafios[] = $desafio;
@@ -82,7 +82,7 @@ class Torneio
 
     public function inscreverAluno(Aluno $aluno): void
     {
-        // Evita duplicidade
+        
         if (!in_array($aluno, $this->participantes, true)) {
             $this->participantes[] = $aluno;
         }
