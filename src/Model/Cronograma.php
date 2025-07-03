@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model;
+namespace GestaoHogwarts\Models;
 
 class Cronograma
 {
-
+    // classe vazia por enquanto
 }
