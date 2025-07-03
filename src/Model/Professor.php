@@ -1,52 +1,49 @@
 <?php
 
-namespace App\Model;
+namespace GestaoHogwarts\Models;
 
+use GestaoHogwarts\Base\AbstractPerson;
+use GestaoHogwarts\Interfaces\NotifiableInterface;
 
-use App\Interfaces\PersonInterface;
-
-class Professor implements PersonInterface
+class Professor extends AbstractPerson implements NotifiableInterface
 {
-    private string $id;
-    private string $nome;
-    private string $email;
-    private Disciplina $disciplina;
-    private $turmas = [];
+    private array $disciplinas;
+    private ?Cronograma $cronograma;
 
-    public function __construct(string $id, string $nome, string $email, Disciplina $disciplina)
+    public function __construct(string $nome, string $email)
     {
-        $this->nome = $nome;
-        $this->email = $email;
-        $this->disciplina = $disciplina;
+        parent::__construct($nome, $email);
+        $this->disciplinas = [];
+        $this->cronograma = null;
     }
 
-    public function getNome(): string
+    public function adicionarDisciplina(Disciplina $disciplina): void
     {
-        return $this->nome;
+        $this->disciplinas[] = $disciplina;
     }
 
-    public function getEmail(): string
+    public function getDisciplinas(): array
     {
-        return $this->email;
+        return $this->disciplinas;
     }
 
-    public function getDisciplina(): Disciplina
+    public function setDisciplinas(array $disciplinas): void
     {
-        return $this->disciplina;
+        $this->disciplinas = $disciplinas;
     }
 
-    public function adicionarTurma($turma): void
+    public function getCronograma(): ?Cronograma
     {
-        $this->turmas[] = $turma;
+        return $this->cronograma;
     }
 
-    public function getTurmas(): array
+    public function setCronograma(Cronograma $cronograma): void
     {
-        return $this->turmas;
+        $this->cronograma = $cronograma;
     }
 
-    public function getId(): string
+    public function enviarNotificacao(string $mensagem): void
     {
-        return $this->id;
+        echo "Notificando Professor {$this->getNome()}: \"{$mensagem}\"\n";
     }
 }

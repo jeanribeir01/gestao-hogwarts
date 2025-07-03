@@ -9,13 +9,13 @@
       "email": "jeanribeiro1905@gmail.com"
     },
     {
-      "name": "",
-      "email": ""
+      "name": "Camila Eduarda Lourenço",
+      "email": "camilaeduarda.be@gmail.com"
     }
   ],
   "autoload": {
     "psr-4": {
-      "App\\": "src/"
+      "GestaoHogwarts\\": "src/"
     }
   },
   "require": {}
