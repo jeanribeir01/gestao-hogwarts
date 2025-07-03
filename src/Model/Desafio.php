@@ -25,7 +25,6 @@ class Desafio
         $this->torneio = $torneio;
     }
 
-    // Getter e Setter: descricao
     public function getDescricao(): string
     {
         return $this->descricao;
@@ -36,7 +35,6 @@ class Desafio
         $this->descricao = $descricao;
     }
 
-    // Getter e Setter: data
     public function getData(): string
     {
         return $this->data;
@@ -47,7 +45,6 @@ class Desafio
         $this->data = $data;
     }
 
-    // Getter e Setter: local
     public function getLocal(): string
     {
         return $this->local;
@@ -58,7 +55,6 @@ class Desafio
         $this->local = $local;
     }
 
-    // Getter e Setter: regras
     public function getRegras(): string
     {
         return $this->regras;
@@ -69,7 +65,6 @@ class Desafio
         $this->regras = $regras;
     }
 
-    // Getter e Setter: torneio
     public function getTorneio(): Torneio
     {
         return $this->torneio;
