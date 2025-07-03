@@ -1,10 +1,7 @@
 <?php
 
-
-namespace App\Models;
-
-use App\Models\Torneio;
-
+namespace App\Model;
+use App\Model\Torneio;
 class Desafio
 {
     private string $descricao;
@@ -12,16 +9,15 @@ class Desafio
     private string $local;
     private string $regras;
 
-    private ?Torneio $torneio = null; // Associação com o torneio
+    private Torneio $torneio;
 
     public function __construct(
-        string   $descricao = '',
-        string   $data = '',
-        string   $local = '',
-        string   $regras = '',
-        ?Torneio $torneio = null
-    )
-    {
+        string $descricao,
+        string $data,
+        string $local,
+        string $regras,
+        Torneio $torneio
+    ) {
         $this->descricao = $descricao;
         $this->data = $data;
         $this->local = $local;
@@ -29,8 +25,7 @@ class Desafio
         $this->torneio = $torneio;
     }
 
-    // Getters e Setters
-
+    // Getter e Setter: descricao
     public function getDescricao(): string
     {
         return $this->descricao;
@@ -41,6 +36,7 @@ class Desafio
         $this->descricao = $descricao;
     }
 
+    // Getter e Setter: data
     public function getData(): string
     {
         return $this->data;
@@ -51,6 +47,7 @@ class Desafio
         $this->data = $data;
     }
 
+    // Getter e Setter: local
     public function getLocal(): string
     {
         return $this->local;
@@ -61,6 +58,7 @@ class Desafio
         $this->local = $local;
     }
 
+    // Getter e Setter: regras
     public function getRegras(): string
     {
         return $this->regras;
@@ -71,12 +69,13 @@ class Desafio
         $this->regras = $regras;
     }
 
-    public function getTorneio(): ?Torneio
+    // Getter e Setter: torneio
+    public function getTorneio(): Torneio
     {
         return $this->torneio;
     }
 
-    public function setTorneio(?Torneio $torneio): void
+    public function setTorneio(Torneio $torneio): void
     {
         $this->torneio = $torneio;
     }
