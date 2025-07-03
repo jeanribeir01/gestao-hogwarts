@@ -3,26 +3,31 @@
 namespace App\Business;
 
 use App\Model\Aluno;
+use App\Model\Casa;
 
 class SelecaoCasaService
 {
-    public function sugerirCasa(Aluno $aluno): string
+    public function selecionarCasaParaAluno(Aluno $aluno, array $casas): void
     {
         $caracteristicas = $aluno->getCaracteristicas();
+        $casaSelecionada = null;
 
         if (in_array('coragem', $caracteristicas)) {
-            $casa = 'Grifinória';
-        } elseif (in_array('inteligencia', $caracteristicas)) {
-            $casa = 'Corvinal';
+            $casaSelecionada = 'Grifinória';
+        } elseif (in_array('astúcia', $caracteristicas)) {
+            $casaSelecionada = 'Sonserina';
+        } elseif (in_array('inteligência', $caracteristicas)) {
+            $casaSelecionada = 'Corvinal';
         } elseif (in_array('lealdade', $caracteristicas)) {
-            $casa = 'Lufa-Lufa';
-        } elseif (in_array('ambicao', $caracteristicas)) {
-            $casa = 'Sonserina';
+            $casaSelecionada = 'Lufa-Lufa';
         } else {
-            $casa = 'Indefinida';
+            $casasDisponiveis = array_keys($casas);
+            $casaSelecionada = $casasDisponiveis[array_rand($casasDisponiveis)];
         }
 
-        $aluno->setCasa($casa);
-        return $casa;
+        if (isset($casas[$casaSelecionada])) {
+            $casas[$casaSelecionada]->adicionarAluno($aluno);
+            echo "\nChapéu Seletor: O aluno {$aluno->getNome()} foi selecionado para a casa {$casaSelecionada}!\n";
+        }
     }
 }

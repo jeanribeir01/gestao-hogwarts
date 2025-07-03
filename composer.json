@@ -1,17 +1,18 @@
 {
   "name": "jeanribeir01/gestao-hogwarts",
-  "type": "library",
-  "description": "Este projeto visa modernizar a administração da Escola de Magia e Bruxaria de Hogwarts através de um Sistema Integrado de Gestão Escolar. Ele auxiliará na organização de processos fundamentais, desde o convite de novos alunos até o controle acadêmico, substituindo processos manuais e melhorando a eficiência.",
+  "type": "project",
+  "description": "Sistema Integrado de Gestão Escolar para a Escola de Magia e Bruxaria de Hogwarts, implementado em PHP com Orientação a Objetos.",
   "license": "MIT",
   "authors": [
-    {
-      "name": "Jean Ribeiro Penha",
-      "email": "jeanribeiro1905@gmail.com"
-    },
-    {
-      "name": "",
-      "email": ""
-    }
+    { "name": "Jean Ribeiro Penha" },
+    { "name": "Samuel Brota" },
+    { "name": "Abner Rodrigues" },
+    { "name": "Camila Eduarda" },
+    { "name": "Cristian Henrique" },
+    { "name": "Felipe Lima" },
+    { "name": "Luiz Felipe Jordão" },
+    { "name": "Maria Fernanda" },
+    { "name": "Samid Giraldello" }
   ],
   "autoload": {
     "psr-4": {

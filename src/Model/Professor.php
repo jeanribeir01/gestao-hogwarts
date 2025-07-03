@@ -2,51 +2,46 @@
 
 namespace App\Model;
 
+use App\Interfaces\NotifiableInterface;
+use DateTime;
 
-use App\Interfaces\PersonInterface;
-
-class Professor implements PersonInterface
+class Professor extends AbstractPerson implements NotifiableInterface
 {
-    private string $id;
-    private string $nome;
-    private string $email;
-    private Disciplina $disciplina;
-    private $turmas = [];
+    private array $disciplinas = [];
+    private array $cronograma = [];
 
-    public function __construct(string $id, string $nome, string $email, Disciplina $disciplina)
+    public function __construct(string $nome, string $email)
     {
-        $this->nome = $nome;
-        $this->email = $email;
-        $this->disciplina = $disciplina;
+        parent::__construct($nome, $email);
     }
 
-    public function getNome(): string
+    public function adicionarDisciplina(Disciplina $disciplina): void
     {
-        return $this->nome;
+        $this->disciplinas[$disciplina->getNome()] = $disciplina;
     }
 
-    public function getEmail(): string
+    public function getDisciplinas(): array
     {
-        return $this->email;
+        return $this->disciplinas;
     }
 
-    public function getDisciplina(): Disciplina
+    public function receberNotificacao(string $mensagem): void
     {
-        return $this->disciplina;
+        echo "\n[NOTIFICAÇÃO PARA PROFESSOR: {$this->getNome()}] $mensagem\n";
     }
 
-    public function adicionarTurma($turma): void
+    public function adicionarHorario(string $dia, string $hora, string $disciplina, string $turma): void
     {
-        $this->turmas[] = $turma;
+        $this->cronograma[] = [
+            'dia' => $dia,
+            'hora' => $hora,
+            'disciplina' => $disciplina,
+            'turma' => $turma
+        ];
     }
 
-    public function getTurmas(): array
+    public function getCronograma(): array
     {
-        return $this->turmas;
-    }
-
-    public function getId(): string
-    {
-        return $this->id;
+        return $this->cronograma;
     }
 }

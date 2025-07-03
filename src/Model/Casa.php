@@ -2,8 +2,6 @@
 
 namespace App\Model;
 
-use App\Model\Aluno;
-
 class Casa
 {
     private string $nome;
@@ -20,24 +18,15 @@ class Casa
         return $this->nome;
     }
 
-    public function setNome(string $nome): void
-    {
-        $this->nome = $nome;
-    }
-
     public function getAlunos(): array
     {
         return $this->alunos;
     }
 
-    public function setAlunos(array $alunos): void
-    {
-        $this->alunos = $alunos;
-    }
-
     public function adicionarAluno(Aluno $aluno): void
     {
-        $this->alunos[] = $aluno;
+        $this->alunos[$aluno->getId()] = $aluno;
+        $aluno->setCasa($this);
     }
 
     public function getPontos(): int
@@ -45,13 +34,13 @@ class Casa
         return $this->pontos;
     }
 
-    public function setPontos(int $pontos): void
-    {
-        $this->pontos = $pontos;
-    }
-
     public function adicionarPontos(int $quantidade): void
     {
         $this->pontos += $quantidade;
+    }
+
+    public function removerPontos(int $quantidade): void
+    {
+        $this->pontos -= $quantidade;
     }
 }
